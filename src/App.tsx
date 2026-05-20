@@ -1,9 +1,13 @@
-import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 function App() {
   return (
     <div>
-      <ListGroup />
+      <Alert>
+        Hello <span>world</span>
+      </Alert>
+      <Button>Button exercise</Button>
     </div>
   );
 }
