@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 
 function Objects() {
   const [car, setCar] = useState({
@@ -7,15 +7,15 @@ function Objects() {
     model: "model 3",
   });
 
-  const handleYearChange = (e) => {
-    setCar((c) => ({ ...c, year: e.target.value }));
+  const handleYearChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCar((c) => ({ ...c, year: Number(e.target.value) }));
   };
 
-  const handleMakeChange = (e) => {
+  const handleMakeChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCar((c) => ({ ...c, make: e.target.value }));
   };
 
-  const handleModelChange = (e) => {
+  const handleModelChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCar((c) => ({ ...c, model: e.target.value }));
   };
 
