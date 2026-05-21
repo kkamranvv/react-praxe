@@ -8,11 +8,13 @@ import ProfilePage from "./components/router-training/ProfilePage.tsx";
 import ProfilesPage from "./components/router-training/ProfilesPage.tsx";
 import NotFoundPage from "./components/router-training/NotFoundPage.tsx";
 import TodoPage from "./components/TodoPage/TodoPage.tsx";
+import UseEffectCounter from "./components/hooks/UseEffect.tsx";
+import ContextApi from "./components/hooks/ContextApi.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <ContextApi />,
     errorElement: <NotFoundPage />,
   },
   {
