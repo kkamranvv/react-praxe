@@ -1,0 +1,55 @@
+.todo-item-wrapper {
+  width: 100%;
+}
+
+.items-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.todo-input-row {
+  display: flex;
+  width: 100%;
+}
+
+input {
+  flex: 1;
+  border-radius: 15px 0px 0px 15px;
+  font-size: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  min-width: 0;
+}
+
+.add-btn {
+  background-color: white;
+  padding: 10px;
+  color: black;
+  border-radius: 0px 15px 15px 0px;
+  transform: 0.3s ease;
+  border-left: 1px solid black;
+}
+
+.add-btn:hover {
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  padding: 3px 5px;
+}
+
+.delete-btn:hover {
+  opacity: 0.8;
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+  margin: 4px 0 0;
+}
