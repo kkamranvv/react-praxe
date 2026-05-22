@@ -1,15 +1,32 @@
 import React, { useEffect, useState } from "react";
 
 interface GiphyItem {
-  id: string;
-  title: string;
+  id: number;
+  title?: string;
+  images: {
+    downsized: {
+      url: string;
+    };
+  };
 }
 
 import "./Media.css";
-import { fetchTrending } from "../../api/giphyApi";
+import { fetchTrending, fetchSearchedGiphys } from "../../api/giphyApi";
+import TrendingGiphy from "../TrendingGiphy/TrendingGiphy";
+import giphyArtists from "../../artists";
 
 const Media = () => {
   const [trending, setTrending] = useState<GiphyItem[]>([]);
+  const [artists, setArtists] = useState<GiphyItem[]>([]);
+
+  const getArtists = async () => {
+    const results = await Promise.all(
+      giphyArtists.map((giphyArtist) => fetchSearchedGiphys(giphyArtist))
+    );
+    const gifs = results.flatMap((res) => res.data.data);
+    setArtists(gifs);
+    console.log(gifs);
+  };
 
   useEffect(() => {
     const load = async () => {
@@ -17,9 +34,11 @@ const Media = () => {
       setTrending(res.data.data.sort(() => Math.random() - 0.5));
     };
     load();
+    getArtists();
   }, []);
 
   console.log(trending);
+  console.log(giphyArtists);
 
   return (
     <div className="media">
@@ -31,7 +50,7 @@ const Media = () => {
         <div className="trending-container">
           {trending.map((giphy) => (
             <div key={giphy.id} className="gif-card">
-              <span>{giphy.title}</span>
+              <TrendingGiphy giphy={giphy} />
             </div>
           ))}
         </div>
@@ -42,7 +61,11 @@ const Media = () => {
           <img src="../../../public/images/artists.svg" alt="artists" />
           <h1>Artists</h1>
         </div>
-        <div className="artists-container">Content</div>
+        <div className="artists-container">
+          {artists.map((giphy) => (
+            <p key={giphy.id} className="artist-title">{giphy.title}</p>
+          ))}
+        </div>
       </div>
 
       <div className="row">

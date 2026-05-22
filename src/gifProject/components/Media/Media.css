@@ -19,3 +19,19 @@
   flex-wrap: wrap;
   gap: 6px;
 }
+
+.artists-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-title {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.artist-title:hover {
+  text-decoration: underline;
+}
