@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+interface GiphyItem {
+  id: string;
+  title: string;
+}
 
 import "./Media.css";
+import { fetchTrending } from "../../api/giphyApi";
 
 const Media = () => {
+  const [trending, setTrending] = useState<GiphyItem[]>([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const res = await fetchTrending();
+      setTrending(res.data.data.sort(() => Math.random() - 0.5));
+    };
+    load();
+  }, []);
+
+  console.log(trending);
+
   return (
     <div className="media">
       <div className="row">
@@ -10,7 +28,13 @@ const Media = () => {
           <img src="../../../public/images/trending.svg" alt="trending" />
           <h1>Trending</h1>
         </div>
-        <div className="trending-container">Content</div>
+        <div className="trending-container">
+          {trending.map((giphy) => (
+            <div key={giphy.id} className="gif-card">
+              <span>{giphy.title}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="row">

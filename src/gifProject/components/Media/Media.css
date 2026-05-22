@@ -13,3 +13,9 @@
 .row-header img {
   margin-right: 6px;
 }
+
+.trending-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
