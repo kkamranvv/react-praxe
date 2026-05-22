@@ -8,6 +8,8 @@
 import "./App.css";
 import Header from "./gifProject/components/Header/Header";
 
+import Search from "./gifProject/components/Search/Search";
+
 function App() {
   // const [alert, setAlert] = useState(false);
 
@@ -30,7 +32,7 @@ function App() {
       <div className="app">
         <div className="main">
           <Header />
-          <h1>Search container</h1>
+          <Search />
           <h1>Media</h1>
         </div>
       </div>
