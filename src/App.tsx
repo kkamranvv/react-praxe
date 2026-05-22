@@ -10,6 +10,8 @@ import Header from "./gifProject/components/Header/Header";
 
 import Search from "./gifProject/components/Search/Search";
 
+import Media from "./gifProject/components/Media/Media";
+
 function App() {
   // const [alert, setAlert] = useState(false);
 
@@ -33,7 +35,7 @@ function App() {
         <div className="main">
           <Header />
           <Search />
-          <h1>Media</h1>
+          <Media />
         </div>
       </div>
     </div>
